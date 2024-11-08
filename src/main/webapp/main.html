@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RecipeBoxx</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            background-color: #F0F4EF;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #88D66C;
+            color: white;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Search Bar */
+        .search-bar-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            padding: 8px 30px 8px 10px;
+            border-radius: 5px;
+            border: none;
+            width: 250px;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            color: #555;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Header Icons */
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-icons .icon-link {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-icons .icon-link i {
+            margin-right: 5px;
+        }
+
+        .header-icons .icon-link:hover {
+            background-color: #555;
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            padding: 8px 12px;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Centering card container */
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Custom Button Styling */
+        .btn-custom {
+            background-color: #88D66C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: orange;
+        }
+
+        /* Card Transition and Enlarge Effect */
+        .card {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Enlarge effect on card click */
+        .card.clicked {
+            transform: scale(1.1); /* Slightly larger on click */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sliding effect for cards */
+        .card.slide-in {
+            transform: translateX(100%); /* Slide from right */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #88D66C; /* Same color as the header */
+            color: white;
+            padding: 15px 0;  /* Adjusted padding for a cleaner look */
+            text-align: center;
+            font-size: 14px;
+            margin-top: 30px;  /* Added some space between content and footer */
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Header with Search, Profile, About Us, and Logout Icons -->
+<header>
+    <div class="logo">RecipeBoxx</div>
+
+    <!-- Search Bar with Icon -->
+    <div class="search-bar-container">
+        <input type="text" class="search-bar" placeholder="Search recipes..." />
+        <i class="fas fa-search search-icon"></i>
+    </div>
+
+    <!-- Profile, About Us, and Logout Icons -->
+    <div class="header-icons">
+        <a href="profile.html" class="icon-link"><i class="fas fa-user"></i> Profile</a>
+        <a href="feedback.html" class="icon-link"><i class="fas fa-info-circle"></i> Feedback</a>
+        <a href="aboutus.html" class="icon-link"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="login.jsp" class="icon-link logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</header>
+
+<!-- Card Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card h-100 d-flex flex-column" onclick="handleCardClick(this)">
+                <img src="images/v.jpeg" class="card-img-top" alt="Veg Recipes">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Veg</h5>
+                    <p class="card-text">Our vegetarian recipes celebrate the goodness of fresh veggies, wholesome grains, and plant-based ingredients.</p>
+                    <a href="card1.html" class="btn-custom mt-auto">Explore Veg Recipes</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card h-100 d-flex flex-column" onclick="handleCardClick(this)">
+                <img src="images/nonveg.jpeg" class="card-img-top" alt="Non-Veg Recipes">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Non Veg</h5>
+                    <p class="card-text">A flavorful and savory non-veg dish that combines tender meat with rich spices for a perfect meal</p>
+                    <a href="card2.html" class="btn-custom mt-auto">Explore Non Veg</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card h-100 d-flex flex-column" onclick="handleCardClick(this)">
+                <img src="images/d.jpg" class="card-img-top" alt="Desserts">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Desserts</h5>
+                    <p class="card-text">Indulge in our collection of desserts that are perfect for satisfying your sweet cravings.</p>
+                    <a href="DeveloperGuide.html" class="btn-custom mt-auto">Explore Desserts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 RecipeBoxx | All Rights Reserved</p>
+</footer>
+
+<script>
+    function handleCardClick(cardElement) {
+        // Add "clicked" class to the card to enlarge it and apply effects
+        cardElement.classList.add('clicked');
+        
+        // Simulate sliding effect for the card
+        setTimeout(function() {
+            cardElement.classList.add('slide-in');
+        }, 100);
+
+        // Optionally, navigate to the card's linked page after a short delay (for demonstration)
+        setTimeout(function() {
+            window.location.href = cardElement.querySelector('a').href; // Redirect after animation
+        }, 1000); // Adjust the delay for a smoother transition
+    }
+</script>
+
+</body>
+</html>

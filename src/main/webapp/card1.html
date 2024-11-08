@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Veg Recipes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
+    <style>
+        body {
+            background-color: #F0F4EF;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Decrease height of the navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #88D66C;
+            color: white;
+            padding: 10px 20px; /* Reduced padding */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Search Bar with Icon */
+        .search-bar-container {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            width: 300px;
+        }
+			
+			
+    /* Apply specific height to the Paneer Tikka recipe image */
+    .recipe-card img[src='images/paneer.jpeg'] {
+        height: 150px;
+        object-fit: cover;
+    }
+
+
+
+        .search-bar {
+            border: none;
+            padding: 8px 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .search-icon {
+            font-size: 18px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Aligning the icon links side by side */
+        .header-icons {
+            display: flex;  /* Flexbox for horizontal alignment */
+            align-items: center;
+        }
+
+        .header-icons .icon-link {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-left: 15px;  /* Added margin to separate the links */
+            transition: background-color 0.3s ease;
+        }
+
+        .header-icons .icon-link i {
+            margin-right: 5px;
+        }
+
+        .header-icons .icon-link:hover {
+            background-color: #555;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background-color: #e74c3c;
+            padding: 8px 12px;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Recipe Card Styles */
+        .recipe-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out; /* Add smooth transition for scaling */
+        }
+
+        /* Recipe Image */
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Recipe Title */
+        .recipe-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Recipe Description */
+        .recipe-desc {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Hover Effect for Cards - Scale them when hovered */
+        .recipe-card:hover {
+            transform: scale(1.05); /* Slightly enlarge the card on hover */
+        }
+
+        .back-btn {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        
+          footer {
+            background-color: #88D66C;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #88D66C;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+
+        /* Align category titles to the left */
+        .category-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 40px;
+            text-align: left;
+            padding-left: 15px;  /* Added padding to the left */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">RecipeBoxx</div>
+
+        <!-- Search Bar with Icon -->
+        <div class="search-bar-container">
+            <input type="text" class="search-bar" placeholder="Search recipes..." />
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <!-- Profile, About Us, and Logout Icons -->
+        <div class="header-icons">
+            <a href="profile.html" class="icon-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="feedback.html" class="icon-link"><i class="fas fa-info-circle"></i> Feedback</a>
+			<a href="aboutus.html" class="icon-link"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="login.jsp" class="icon-link logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </header>
+
+    <!-- Heading -->
+    <div class="container mt-5 text-center">
+        <h2>Explore Veg Recipes</h2>
+    </div>
+
+    <!-- Starters Category -->
+    <div class="container">
+        <h3 class="category-title">Starters</h3>
+        <div class="row">
+            <!-- Starters Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+					<img src="images/paneer.jpeg"alt="Paneer Tikka">
+                    <h3 class="recipe-title">Panner Tikka</h3>
+                    <p class="recipe-desc">Fresh vegetables combined with whole grains for a healthy, delicious meal.</p>
+                    <a href="paneer.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Starters Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/veg2.jpg" alt="Veg Recipe 2" class="recipe-image">
+                    <h3 class="recipe-title">Veg Recipe 2</h3>
+                    <p class="recipe-desc">A vibrant and flavorful vegetable stir fry that's quick and easy to make.</p>
+                    <a href="recipe2-details.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Starters Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/veg3.jpg" alt="Veg Recipe 3" class="recipe-image">
+                    <h3 class="recipe-title">Veg Recipe 3</h3>
+                    <p class="recipe-desc">A hearty vegetarian soup full of seasonal vegetables and legumes.</p>
+                    <a href="recipe3-details.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soups Category -->
+    <div class="container">
+        <h3 class="category-title">Soups</h3>
+        <div class="row">
+            <!-- Soups Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/veg4.jpg" alt="Veg Recipe 4" class="recipe-image">
+                    <h3 class="recipe-title">Veg Recipe 4</h3>
+                    <p class="recipe-desc">A creamy vegetarian pasta made with fresh herbs and vegetables.</p>
+                    <a href="recipe4-details.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Soups Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/v.jpeg" alt="Veg Recipe 1" class="recipe-image">
+                    <h3 class="recipe-title">Veg Recipe 5</h3>
+                    <p class="recipe-desc">A savory vegetable soup with seasonal greens and herbs.</p>
+                    <a href="recipe5-details.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Soups Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/veg2.jpg" alt="Veg Recipe 2" class="recipe-image">
+                    <h3 class="recipe-title">Veg Recipe 6</h3>
+                    <p class="recipe-desc">A comforting lentil soup, perfect for a cozy meal.</p>
+                    <a href="recipe6-details.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Curries Category -->
+    <div class="container">
+        <h3 class="category-title">Curries</h3>
+        <div class="row">
+            <!-- Curries Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/veg3.jpg" alt="Veg Recipe 3" class="recipe-image">
+                    <h3 class="recipe-title">Veg Recipe 7</h3>
+                    <p class="recipe-desc">A rich and flavorful vegetable curry made with coconut milk and spices.</p>
+                    <a href="recipe7-details.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Curries Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/veg4.jpg" alt="Veg Recipe 4" class="recipe-image">
+                    <h3 class="recipe-title">Veg Recipe 8</h3>
+                    <p class="recipe-desc">A spicy curry with mixed vegetables and a tangy tomato base.</p>
+                    <a href="recipe8-details.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Curries Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/v.jpeg" alt="Veg Recipe 1" class="recipe-image">
+                    <h3 class="recipe-title">Veg Recipe 9</h3>
+                    <p class="recipe-desc">A savory curry made with chickpeas, spinach, and aromatic spices.</p>
+                    <a href="recipe9-details.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="container text-center mt-4">
+        <a href="main.html" class="back-btn">Back</a>
+    </div>
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 RecipeBoxx | All Rights Reserved</p>
+</footer>
+</body>
+</html>
