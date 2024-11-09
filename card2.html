@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Non-Veg Recipes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
+    <style>
+        body {
+            background-color: #F0F4EF;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Decrease height of the navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #88D66C;
+            color: white;
+            padding: 10px 20px; /* Reduced padding */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Search Bar with Icon */
+        .search-bar-container {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .search-bar {
+            border: none;
+            padding: 8px 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .search-icon {
+            font-size: 18px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Aligning the icon links side by side */
+        .header-icons {
+            display: flex;  /* Flexbox for horizontal alignment */
+            align-items: center;
+        }
+
+        .header-icons .icon-link {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-left: 15px;  /* Added margin to separate the links */
+            transition: background-color 0.3s ease;
+        }
+
+        .header-icons .icon-link i {
+            margin-right: 5px;
+        }
+
+        .header-icons .icon-link:hover {
+            background-color: #555;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background-color: #e74c3c;
+            padding: 8px 12px;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Recipe Card Styles */
+        .recipe-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out; /* Add smooth transition for scaling */
+        }
+
+        /* Recipe Image */
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Recipe Title */
+        .recipe-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Recipe Description */
+        .recipe-desc {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Hover Effect for Cards - Scale them when hovered */
+        .recipe-card:hover {
+            transform: scale(1.05); /* Slightly enlarge the card on hover */
+        }
+		
+        .back-btn {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: #88D66C;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #88D66C;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Align category titles to the left */
+        .category-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 40px;
+            text-align: left;
+            padding-left: 15px;  /* Added padding to the left */
+        }
+
+        /* Large View Recipe Button */
+        .recipe-card .btn {
+            width: 100%;  /* Make the button span the full width of the card */
+            padding: 10px;  /* Reduce the padding to decrease the button height */
+            font-size: 16px;  /* Adjust the font size to make it proportionate */
+            text-transform: uppercase;  /* Make the button text uppercase */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .recipe-card .btn:hover {
+            background-color: #2980b9;  /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">RecipeBoxx</div>
+
+        <!-- Search Bar with Icon -->
+        <div class="search-bar-container">
+            <input type="text" class="search-bar" placeholder="Search recipes..." />
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <!-- Profile, About Us, and Logout Icons -->
+        <div class="header-icons">
+            <a href="profile.html" class="icon-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="feedback.html" class="icon-link"><i class="fas fa-info-circle"></i> Feedback</a>
+            <a href="aboutus.html" class="icon-link"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="login.jsp" class="icon-link logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </header>
+
+    <!-- Heading -->
+    <div class="container mt-5 text-center">
+        <h2>Explore Non-Veg Recipes</h2>
+    </div>
+
+    <!-- Starters Category -->
+    <div class="container">
+        <h3 class="category-title">Starters</h3>
+        <div class="row">
+            <!-- Starters Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/ctikka.webp" alt="Chicken Tikka" class="recipe-image">
+                    <h3 class="recipe-title">Chicken Tikka</h3>
+                    <p class="recipe-desc">Tender chicken pieces marinated with spices and grilled to perfection.</p>
+                    <a href="chicken-tikka.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Starters Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/ppp.jpg" alt="Fish Fry" class="recipe-image">
+                    <h3 class="recipe-title">Chilli garlic prawns</h3>
+                    <p class="recipe-desc">Crispy fried prawns fillets seasoned with aromatic spices.</p>
+                    <a href="fish-fry.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Starters Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/mkabab.jpeg" alt="Mutton Kebab" class="recipe-image">
+                    <h3 class="recipe-title">Mutton Kebab</h3>
+                    <p class="recipe-desc">Succulent mutton pieces, marinated and grilled to perfection.</p>
+                    <a href="mutton-kebab.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soups Category -->
+    <div class="container">
+        <h3 class="category-title">Soups</h3>
+        <div class="row">
+            <!-- Soups Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/csoup.jpg" alt="Chicken Soup" class="recipe-image">
+                    <h3 class="recipe-title">Chicken Soup</h3>
+                    <p class="recipe-desc">A hearty and comforting chicken soup made with fresh herbs.</p>
+                    <a href="chicken-soup.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Soups Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/ssoup.jpg" alt="Beef Soup" class="recipe-image">
+                    <h3 class="recipe-title">Shrimp Soup</h3>
+                    <p class="recipe-desc">A rich shrimp soup with vegetables and a burst of flavors.</p>
+                    <a href="shrimpsoup.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Soups Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/seasoup.jpg" alt="Seafood Soup" class="recipe-image">
+                    <h3 class="recipe-title">Seafood Soup</h3>
+                    <p class="recipe-desc">A delicious and aromatic seafood soup with prawns and fish.</p>
+                    <a href="seafood-soup.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Curries Category -->
+    <div class="container">
+        <h3 class="category-title">Main Course</h3>
+        <div class="row">
+            <!-- Curries Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/cbiryani.jpg" alt="Chicken Curry" class="recipe-image">
+                    <h3 class="recipe-title">Chicken Biryani</h3>
+                    <p class="recipe-desc">A rich and flavorful chicken curry made with aromatic spices.</p>
+                    <a href="chicken-curry.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Curries Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/mugbiryani.avif" alt="Fish Curry" class="recipe-image">
+                    <h3 class="recipe-title">Mughlai Biryani</h3>
+                    <p class="recipe-desc">A tangy and spicy fish curry made with fresh coconut milk.</p>
+                    <a href="fish-curry.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Curries Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/sbiryani.jpg" alt="Lamb Curry" class="recipe-image">
+                    <h3 class="recipe-title">Shahi Biryani</h3>
+                    <p class="recipe-desc">A tender chicken and mutton curry made with a mix of spices.</p>
+                    <a href="lamb-curry.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="container text-center mt-4">
+        <a href="main.html" class="back-btn">Back</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 RecipeBoxx | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
