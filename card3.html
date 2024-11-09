@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dessert Recipes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
+    <style>
+        body {
+            background-color: #F0F4EF;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Decrease height of the navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #88D66C;
+            color: white;
+            padding: 10px 20px; /* Reduced padding */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Search Bar with Icon */
+        .search-bar-container {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .search-bar {
+            border: none;
+            padding: 8px 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .search-icon {
+            font-size: 18px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Aligning the icon links side by side */
+        .header-icons {
+            display: flex;  /* Flexbox for horizontal alignment */
+            align-items: center;
+        }
+
+        .header-icons .icon-link {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-left: 15px;  /* Added margin to separate the links */
+            transition: background-color 0.3s ease;
+        }
+
+        .header-icons .icon-link i {
+            margin-right: 5px;
+        }
+
+        .header-icons .icon-link:hover {
+            background-color: #555;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background-color: #e74c3c;
+            padding: 8px 12px;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Recipe Card Styles */
+        .recipe-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            height: 400px; /* Set a fixed height for the card */
+            display: flex;
+            flex-direction: column; /* Allow the card content to flow vertically */
+            justify-content: space-between; /* Ensure space between the image, title, description, and button */
+        }
+
+        /* Recipe Image */
+        .recipe-image {
+            width: 100%;
+            height: 200px; /* Set the height for all images */
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Recipe Title */
+        .recipe-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Recipe Description */
+        .recipe-desc {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+            flex-grow: 1; /* Ensure description takes available space */
+        }
+
+        /* Hover Effect for Cards - Scale them when hovered */
+        .recipe-card:hover {
+            transform: scale(1.05); /* Slightly enlarge the card on hover */
+        }
+
+        .back-btn {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: #88D66C;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #88D66C;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Align category titles to the left */
+        .category-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 40px;
+            text-align: left;
+            padding-left: 15px;  /* Added padding to the left */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">RecipeBoxx</div>
+
+        <!-- Search Bar with Icon -->
+        <div class="search-bar-container">
+            <input type="text" class="search-bar" placeholder="Search recipes..." />
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <!-- Profile, About Us, and Logout Icons -->
+        <div class="header-icons">
+            <a href="profile.html" class="icon-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="feedback.html" class="icon-link"><i class="fas fa-info-circle"></i> Feedback</a>
+            <a href="aboutus.html" class="icon-link"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="login.jsp" class="icon-link logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </header>
+
+    <!-- Heading -->
+    <div class="container mt-5 text-center">
+        <h2>Explore Dessert Recipes</h2>
+    </div>
+
+    <!-- Pastries Category -->
+    <div class="container">
+        <h3 class="category-title">Cakes & Pastries</h3>
+        <div class="row">
+            <!-- Pastry Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/cake1.jpeg" alt="Chocolate Cake" class="recipe-image">
+                    <h3 class="recipe-title">Almondroast Cake</h3>
+                    <p class="recipe-desc">A moist and rich chocolate cake topped with decadent frosting.</p>
+                    <a href="chocolate-cake.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Pastry Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/cake2.jpg" alt="Apple Strudel" class="recipe-image">
+                    <h3 class="recipe-title">Strawberry Strudel</h3>
+                    <p class="recipe-desc">A traditional pastry filled with spiced strawberries and wrapped pastry.</p>
+                    <a href="apple-strudel.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Pastry Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/cake3.jpg" alt="Eclair" class="recipe-image">
+                    <h3 class="recipe-title">Chocolate Pastry</h3>
+                    <p class="recipe-desc">Delicate pastry  with custard and topped with chocolate glaze.</p>
+                    <a href="eclair.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Frozen Desserts Category -->
+    <div class="container">
+        <h3 class="category-title">Frozen Desserts</h3>
+        <div class="row">
+            <!-- Frozen Dessert Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/f1.jpeg" alt="Vanilla Ice Cream" class="recipe-image">
+                    <h3 class="recipe-title">Vanilla Ice Cream</h3>
+                    <p class="recipe-desc">Creamy vanilla ice cream made with fresh cream and vanilla beans.</p>
+                    <a href="vanilla-ice-cream.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Frozen Dessert Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/f2.jpeg" alt="Mango Sorbet" class="recipe-image">
+                    <h3 class="recipe-title">Chocopie with vanilla</h3>
+                    <p class="recipe-desc">A creamy choco chocolate pie with refreshing vanilla pie.</p>
+                    <a href="mango-sorbet.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Frozen Dessert Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/f3.jpg" alt="Frozen Yogurt" class="recipe-image">
+                    <h3 class="recipe-title">Starwberry Tart</h3>
+                    <p class="recipe-desc">A healthy and creamy frozen dessert made with strawberries</p>
+                    <a href="frozen-yogurt.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Puddings Category -->
+    <div class="container">
+        <h3 class="category-title">Custards & Puddings</h3>
+        <div class="row">
+            <!-- Pudding Recipe 1 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/p1.jpeg" alt="Caramel Pudding" class="recipe-image">
+                    <h3 class="recipe-title">Caramel Pudding</h3>
+                    <p class="recipe-desc">A smooth and creamy caramel pudding with a golden caramel layer.</p>
+                    <a href="caramel-pudding.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Pudding Recipe 2 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/p2.jpeg" alt="Chocolate Pudding" class="recipe-image">
+                    <h3 class="recipe-title">Chocolate Pudding</h3>
+                    <p class="recipe-desc">Rich and creamy chocolate pudding with a velvety texture.</p>
+                    <a href="chocolate-pudding.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+
+            <!-- Pudding Recipe 3 -->
+            <div class="col-md-4">
+                <div class="recipe-card">
+                    <img src="images/p3.jpeg" alt="Rice Pudding" class="recipe-image">
+                    <h3 class="recipe-title">Almondmilk Pudding</h3>
+                    <p class="recipe-desc">A classic almondmilk pudding made with milk and cream.</p>
+                    <a href="rice-pudding.html" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="container text-center mt-4">
+        <a href="main.html" class="back-btn">Back</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 RecipeBoxx | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
